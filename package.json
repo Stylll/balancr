@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "babel-node ./tools/srcServer.js",
+    "migration:db": "sequelize db:migrate:undo:all --env development && sequelize db:migrate --env development",
+    "migration:db-test": "sequelize db:migrate:undo:all --env test && sequelize db:migrate --env test",
+    "migration:db-prod": "sequelize db:migrate:undo:all --env production && sequelize db:migrate --env production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "nodemon --exec babel-node ./tools/srcServer.js",
     "heroku:server": "babel-node ./tools/srcServer.js"
@@ -30,6 +33,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "dotenv": "^5.0.1",
     "eslint": "^4.19.1",

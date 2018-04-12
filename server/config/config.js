@@ -1,10 +1,8 @@
-import dotenv from 'dotenv';
-
-dotenv.config();
+require('dotenv').config();
 
 const config = {
   development: {
-    url: process.env.DEVELOPMENT_DATABASE_URL,
+    url: process.env.DATABASE_URL,
     dialect: 'postgres',
   },
   test: {
@@ -20,5 +18,5 @@ const config = {
   },
 };
 
-export default config;
+module.exports = config;
 
